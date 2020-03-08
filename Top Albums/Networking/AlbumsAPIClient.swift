@@ -16,13 +16,13 @@ struct AlbumAPIs {
 
 class AlbumsAPIClient {
     
-    public func fetchTopAlbums() {
+    public func fetchTopAlbums(success: @escaping (Feed) -> Void, error: @escaping (String) -> Void) {
         let successHandler: (Feed) -> Void = {feed in
-            print(feed)
+            success(feed)
         }
-        
+
         let errorHandler: (String) -> Void = { errorMessage in
-            print(errorMessage)
+            error(errorMessage)
         }
         
         let url = AlbumAPIs().topAlbums

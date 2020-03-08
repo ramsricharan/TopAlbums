@@ -17,11 +17,15 @@ enum ErrorMessages : String {
 
 class NetworkManager {
     
+    // MARK:- Properties
     static var sharedInstance: NetworkManager = NetworkManager()
     
     private init() {}
     
     
+    // MARK:- Utility Methods
+    
+    // Fetch the data from given URL and parse it into specified object
     public func getData<T:Decodable>(fromURL: String, successHandler: @escaping (T) -> Void, errorHandler: @escaping (String) -> Void ) {
         if let url = URL(string: fromURL) {
             

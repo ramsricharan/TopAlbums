@@ -16,6 +16,10 @@
 		353FC52624145E7A00E57813 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FC52524145E7A00E57813 /* NetworkManager.swift */; };
 		35BC20662414AEED00B63B9E /* AlbumsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC20652414AEED00B63B9E /* AlbumsAPIClient.swift */; };
 		35BC206A2414B8FD00B63B9E /* AlbumListViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC20692414B8FD00B63B9E /* AlbumListViewModal.swift */; };
+		35BC206C2414DF6E00B63B9E /* AlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC206B2414DF6E00B63B9E /* AlbumListView.swift */; };
+		35BC206F2414F37500B63B9E /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC206E2414F37500B63B9E /* AlbumTableViewCell.swift */; };
+		35BC20722414F6DB00B63B9E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC20712414F6DB00B63B9E /* UIView+Extensions.swift */; };
+		35BC20742414F89200B63B9E /* ImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC20732414F89200B63B9E /* ImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,10 @@
 		353FC52524145E7A00E57813 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		35BC20652414AEED00B63B9E /* AlbumsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsAPIClient.swift; sourceTree = "<group>"; };
 		35BC20692414B8FD00B63B9E /* AlbumListViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewModal.swift; sourceTree = "<group>"; };
+		35BC206B2414DF6E00B63B9E /* AlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListView.swift; sourceTree = "<group>"; };
+		35BC206E2414F37500B63B9E /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
+		35BC20712414F6DB00B63B9E /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		35BC20732414F89200B63B9E /* ImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,7 @@
 		353FC4FF24144FA900E57813 /* Top Albums */ = {
 			isa = PBXGroup;
 			children = (
+				35BC20702414F6C000B63B9E /* Extensions */,
 				35BC20682414B8D300B63B9E /* AppFeatures */,
 				353FC52424145E5900E57813 /* Networking */,
 				353FC5212414568500E57813 /* Modal */,
@@ -125,6 +134,7 @@
 			children = (
 				353FC50224144FA900E57813 /* AlbumListVC.swift */,
 				35BC20692414B8FD00B63B9E /* AlbumListViewModal.swift */,
+				35BC206D2414F32C00B63B9E /* Views */,
 			);
 			path = AlbumList;
 			sourceTree = "<group>";
@@ -135,6 +145,24 @@
 				35BC20672414B8B400B63B9E /* AlbumList */,
 			);
 			path = AppFeatures;
+			sourceTree = "<group>";
+		};
+		35BC206D2414F32C00B63B9E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				35BC206B2414DF6E00B63B9E /* AlbumListView.swift */,
+				35BC206E2414F37500B63B9E /* AlbumTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		35BC20702414F6C000B63B9E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				35BC20712414F6DB00B63B9E /* UIView+Extensions.swift */,
+				35BC20732414F89200B63B9E /* ImageView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,9 +268,13 @@
 				353FC52624145E7A00E57813 /* NetworkManager.swift in Sources */,
 				353FC50324144FA900E57813 /* AlbumListVC.swift in Sources */,
 				35BC20662414AEED00B63B9E /* AlbumsAPIClient.swift in Sources */,
+				35BC20722414F6DB00B63B9E /* UIView+Extensions.swift in Sources */,
+				35BC20742414F89200B63B9E /* ImageView+Extensions.swift in Sources */,
 				353FC50124144FA900E57813 /* AppDelegate.swift in Sources */,
 				35BC206A2414B8FD00B63B9E /* AlbumListViewModal.swift in Sources */,
 				353FC523241456FC00E57813 /* AlbumData.swift in Sources */,
+				35BC206C2414DF6E00B63B9E /* AlbumListView.swift in Sources */,
+				35BC206F2414F37500B63B9E /* AlbumTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

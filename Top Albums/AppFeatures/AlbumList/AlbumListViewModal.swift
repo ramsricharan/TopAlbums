@@ -12,9 +12,18 @@ import UIKit
 class AlbumListViewModal {
     
     // MARK:- Properties
-    var ViewTitle: String = "Albums"
-    var AlbumsList: [Album] = []
+    var album: Album?
+    var albumName: String
+    var artistName: String
+    var thumbnailURL: String
     
+    // MARK:- Initialize
+    init(Album: Album) {
+        self.album = Album
+        self.albumName = Album.name ?? "Untitled"
+        self.artistName = Album.artistName ?? "No Artist"
+        self.thumbnailURL = Album.artworkUrl100 ?? ""
+    }
     
     // MARK:- Helper Methods
     

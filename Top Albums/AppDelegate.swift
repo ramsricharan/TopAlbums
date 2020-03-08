@@ -20,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Launching App Programatically
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        let rootViewController = AlbumListVC()
-        self.window?.rootViewController = rootViewController
+        self.window?.rootViewController = UINavigationController(rootViewController: AlbumListVC())
+//        let rootViewController = AlbumListVC()
+//        self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
         
         return true
