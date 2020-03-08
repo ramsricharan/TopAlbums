@@ -81,8 +81,8 @@ extension AlbumListVC: UITableViewDelegate, UITableViewDataSource {
         return self.albumListViewModals.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellID, for: indexPath) as? AlbumTableViewCell else {
             let c = UITableViewCell(style:UITableViewCell.CellStyle.subtitle, reuseIdentifier:tableViewCellID)
             c.textLabel?.text = "Error"
@@ -94,6 +94,11 @@ extension AlbumListVC: UITableViewDelegate, UITableViewDataSource {
         cell.titleLabel.text = album.albumName
 
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Tapped on \(albumListViewModals[indexPath.row].albumName)")
     }
     
     

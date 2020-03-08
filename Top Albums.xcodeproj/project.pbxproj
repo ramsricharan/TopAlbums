@@ -20,6 +20,7 @@
 		35BC206F2414F37500B63B9E /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC206E2414F37500B63B9E /* AlbumTableViewCell.swift */; };
 		35BC20722414F6DB00B63B9E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC20712414F6DB00B63B9E /* UIView+Extensions.swift */; };
 		35BC20742414F89200B63B9E /* ImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC20732414F89200B63B9E /* ImageView+Extensions.swift */; };
+		35BC207624159AD300B63B9E /* AlbumDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC207524159AD300B63B9E /* AlbumDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		35BC206E2414F37500B63B9E /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		35BC20712414F6DB00B63B9E /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		35BC20732414F89200B63B9E /* ImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Extensions.swift"; sourceTree = "<group>"; };
+		35BC207524159AD300B63B9E /* AlbumDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +134,8 @@
 		35BC20672414B8B400B63B9E /* AlbumList */ = {
 			isa = PBXGroup;
 			children = (
-				353FC50224144FA900E57813 /* AlbumListVC.swift */,
-				35BC20692414B8FD00B63B9E /* AlbumListViewModal.swift */,
+				35BC207824159B0100B63B9E /* ViewModal */,
+				35BC207724159AEC00B63B9E /* Controllers */,
 				35BC206D2414F32C00B63B9E /* Views */,
 			);
 			path = AlbumList;
@@ -163,6 +165,23 @@
 				35BC20732414F89200B63B9E /* ImageView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		35BC207724159AEC00B63B9E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				353FC50224144FA900E57813 /* AlbumListVC.swift */,
+				35BC207524159AD300B63B9E /* AlbumDetailsVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		35BC207824159B0100B63B9E /* ViewModal */ = {
+			isa = PBXGroup;
+			children = (
+				35BC20692414B8FD00B63B9E /* AlbumListViewModal.swift */,
+			);
+			path = ViewModal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +286,7 @@
 			files = (
 				353FC52624145E7A00E57813 /* NetworkManager.swift in Sources */,
 				353FC50324144FA900E57813 /* AlbumListVC.swift in Sources */,
+				35BC207624159AD300B63B9E /* AlbumDetailsVC.swift in Sources */,
 				35BC20662414AEED00B63B9E /* AlbumsAPIClient.swift in Sources */,
 				35BC20722414F6DB00B63B9E /* UIView+Extensions.swift in Sources */,
 				35BC20742414F89200B63B9E /* ImageView+Extensions.swift in Sources */,
