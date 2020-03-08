@@ -16,6 +16,8 @@ class AlbumListVC: UINavigationController {
         
         self.view.backgroundColor = .yellow
         
+        let apiClient = AlbumsAPIClient()
+        apiClient.fetchTopAlbums()
     }
 
 
