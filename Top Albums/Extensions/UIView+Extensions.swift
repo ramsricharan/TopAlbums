@@ -15,6 +15,9 @@ extension UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
+//    func stretchFullWidth(ofParent: UIView) {
+//        self.widthAnchor.constraint(equalTo: ofParent.widthAnchor).isActive = true
+//    }
     
     func addSubviewToEntireView(childView : UIView) {
         self.addSubview(childView)

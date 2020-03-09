@@ -98,7 +98,12 @@ extension AlbumListVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Tapped on \(albumListViewModals[indexPath.row].albumName)")
+        
+        let albumDetailsVC = AlbumDetailsVC()
+        albumDetailsVC.albumViewModal = self.albumListViewModals[indexPath.row]
+        
+        self.navigationController?.pushViewController(albumDetailsVC, animated: true)
+        
     }
     
     

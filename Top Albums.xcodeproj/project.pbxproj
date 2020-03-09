@@ -21,6 +21,8 @@
 		35BC20722414F6DB00B63B9E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC20712414F6DB00B63B9E /* UIView+Extensions.swift */; };
 		35BC20742414F89200B63B9E /* ImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC20732414F89200B63B9E /* ImageView+Extensions.swift */; };
 		35BC207624159AD300B63B9E /* AlbumDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC207524159AD300B63B9E /* AlbumDetailsVC.swift */; };
+		35BC207A24159F4600B63B9E /* AlbumDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC207924159F4600B63B9E /* AlbumDetailsView.swift */; };
+		35BC207D2415BF9400B63B9E /* MyRoundedButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC207C2415BF9400B63B9E /* MyRoundedButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		35BC20712414F6DB00B63B9E /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		35BC20732414F89200B63B9E /* ImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Extensions.swift"; sourceTree = "<group>"; };
 		35BC207524159AD300B63B9E /* AlbumDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsVC.swift; sourceTree = "<group>"; };
+		35BC207924159F4600B63B9E /* AlbumDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsView.swift; sourceTree = "<group>"; };
+		35BC207C2415BF9400B63B9E /* MyRoundedButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoundedButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +97,11 @@
 		353FC4FF24144FA900E57813 /* Top Albums */ = {
 			isa = PBXGroup;
 			children = (
-				35BC20702414F6C000B63B9E /* Extensions */,
 				35BC20682414B8D300B63B9E /* AppFeatures */,
 				353FC52424145E5900E57813 /* Networking */,
 				353FC5212414568500E57813 /* Modal */,
+				35BC20702414F6C000B63B9E /* Extensions */,
+				35BC207B2415BED100B63B9E /* UI */,
 				353FC50024144FA900E57813 /* AppDelegate.swift */,
 				353FC50724144FAC00E57813 /* Assets.xcassets */,
 				353FC50924144FAC00E57813 /* LaunchScreen.storyboard */,
@@ -154,6 +159,7 @@
 			children = (
 				35BC206B2414DF6E00B63B9E /* AlbumListView.swift */,
 				35BC206E2414F37500B63B9E /* AlbumTableViewCell.swift */,
+				35BC207924159F4600B63B9E /* AlbumDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,6 +188,14 @@
 				35BC20692414B8FD00B63B9E /* AlbumListViewModal.swift */,
 			);
 			path = ViewModal;
+			sourceTree = "<group>";
+		};
+		35BC207B2415BED100B63B9E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				35BC207C2415BF9400B63B9E /* MyRoundedButtons.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +301,8 @@
 				353FC52624145E7A00E57813 /* NetworkManager.swift in Sources */,
 				353FC50324144FA900E57813 /* AlbumListVC.swift in Sources */,
 				35BC207624159AD300B63B9E /* AlbumDetailsVC.swift in Sources */,
+				35BC207A24159F4600B63B9E /* AlbumDetailsView.swift in Sources */,
+				35BC207D2415BF9400B63B9E /* MyRoundedButtons.swift in Sources */,
 				35BC20662414AEED00B63B9E /* AlbumsAPIClient.swift in Sources */,
 				35BC20722414F6DB00B63B9E /* UIView+Extensions.swift in Sources */,
 				35BC20742414F89200B63B9E /* ImageView+Extensions.swift in Sources */,
