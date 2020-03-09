@@ -29,15 +29,15 @@ class AlbumListVC: UIViewController {
     
     let apiClient = AlbumsAPIClient()
     var albumListView: AlbumListView!
-
-
+    
+    
     // MARK:- Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Fetch the Data
         setupViewModal()
-
+        
         // Setup Views
         self.view.backgroundColor = .white
         
@@ -46,12 +46,11 @@ class AlbumListVC: UIViewController {
         albumListView.albumsTableView.dataSource = self
         albumListView.albumsTableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: tableViewCellID)
     }
-
+    
     
     // MARK:- Helper Methods
     func setupViewModal() {
         apiClient.fetchTopAlbums(success: { (data) in
-            
             if let feed = data.feed {
                 self.viewTitle = feed.title ?? "Albums"
                 if let albumsList = feed.results {
@@ -59,15 +58,12 @@ class AlbumListVC: UIViewController {
                         return AlbumListViewModal(Album: album)
                     })
                 }
-                
             }
         }) { (error) in
             // Handle error
             print(error)
         }
-        
     }
-
 }
 
 
@@ -86,22 +82,20 @@ extension AlbumListVC: UITableViewDelegate, UITableViewDataSource {
             c.textLabel?.text = "Error"
             return c
         }
-
+        
         let album = albumListViewModals[indexPath.row]
         cell.albumArtImageView.loadImageFrom(url: album.thumbnailURL)
         cell.albumCardInfoLabel.attributedText = album.getAlbumCardInfoAttr()
-
+        
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let albumDetailsVC = AlbumDetailsVC()
         albumDetailsVC.albumViewModal = self.albumListViewModals[indexPath.row]
         
         self.navigationController?.pushViewController(albumDetailsVC, animated: true)
-        
     }
     
     

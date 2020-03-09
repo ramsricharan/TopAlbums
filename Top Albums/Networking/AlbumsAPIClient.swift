@@ -20,7 +20,7 @@ class AlbumsAPIClient {
         let successHandler: (Feed) -> Void = {feed in
             success(feed)
         }
-
+        
         let errorHandler: (String) -> Void = { errorMessage in
             error(errorMessage)
         }

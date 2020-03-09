@@ -9,20 +9,18 @@
 import UIKit
 
 class AlbumDetailsVC: UIViewController {
-
+    
     // MARK:- Properties
     var albumViewModal: AlbumListViewModal = AlbumListViewModal(Album: nil)
     lazy var albumDetailsViews: AlbumDetailsView = AlbumDetailsView(rootView: self.view)
-
+    
     // MARK:- Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Setup View
         setupViews()
-        
     }
-    
     
     
     // MARK:- Helper Methods
@@ -48,12 +46,12 @@ class AlbumDetailsVC: UIViewController {
     @objc func onLaunchButtonTapped() {
         if let iTunesURL = URL(string: albumViewModal.iTunesURLString),
             UIApplication.shared.canOpenURL(iTunesURL) {
-             UIApplication.shared.open(iTunesURL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(iTunesURL, options: [:], completionHandler: nil)
         } else {
             let title = "Error"
             let message = "Sorry, couldn't launch the album '\(albumViewModal.albumName)' in iTunes App"
             self.showAlert(AlertTitle: title, Message: message)
         }
     }
-
+    
 }

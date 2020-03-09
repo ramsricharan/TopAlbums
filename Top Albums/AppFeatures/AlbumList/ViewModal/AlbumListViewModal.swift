@@ -43,7 +43,6 @@ class AlbumListViewModal {
     }
     
     // MARK:- Public Methods
-    
     // Get short Album Name
     func getAlbumNameShort() -> String {
         let maxLen = 20
@@ -122,7 +121,6 @@ class AlbumListViewModal {
         return generateSideHeadings(heading: "Release Date", content: getFormattedReleaseDate(), fontSize: FontSizes.Medium.rawValue)
     }
     
-
     
     //MARK:- Helper Methods
     // Parse URL and replace the existing protocol to iTunes (itms) protocol

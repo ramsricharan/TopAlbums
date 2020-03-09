@@ -9,23 +9,23 @@
 import XCTest
 @testable import Top_Albums
 
-class Top_AlbumsTests: XCTestCase {
-
+class AlbumListViewModalTests: XCTestCase {
+    
     var testAlbum: Album!
     var testViewModal: AlbumListViewModal!
     
     override func setUp() {
         
         let genres: [Genre] = [Genre(genreId: nil, name: "Pop", url: nil), Genre(genreId: nil, name: "Rock", url: nil)]
-
+        
         testAlbum = Album(artistName: "Tester", releaseDate: "2017/01/11", name: "Test Album", copyright: "All copyrights 2019", url: "https://somewebsite.com", artworkUrl100: nil, genres: genres)
         testViewModal = AlbumListViewModal(Album: testAlbum)
     }
-
+    
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     func test_getAlbumNameShort() {
         // Normal Case 1
         testViewModal.albumName = "This is a normal title"
@@ -59,7 +59,7 @@ class Top_AlbumsTests: XCTestCase {
         let expectedTitle4 = "ThisIsA"
         XCTAssertEqual(actualTitle4, expectedTitle4)
     }
-
+    
     func test_NilAlbum() {
         let viewModal = AlbumListViewModal(Album: nil)
         
@@ -205,5 +205,4 @@ class Top_AlbumsTests: XCTestCase {
     }
     
     
-
 }

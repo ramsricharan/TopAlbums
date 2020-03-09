@@ -14,6 +14,7 @@ class AlbumDetailsView {
     //MARK:- Properties
     private var rootView: UIView
     
+    
     //MARK:- UI Components
     // Base Scroll View
     var baseScrollView: UIScrollView = {
@@ -28,7 +29,6 @@ class AlbumDetailsView {
         stack.noAutoResizing()
         stack.axis = .vertical
         stack.spacing = 0
-//        stack.distribution = UIStackView.Distribution.equalCentering
         stack.alignment = UIStackView.Alignment.center
         return stack
     }()
@@ -136,7 +136,7 @@ class AlbumDetailsView {
         blankView.heightAnchor.constraint(equalToConstant: 10).isActive = true
         blankView.widthAnchor.constraint(equalToConstant: 10).isActive = true
         
-
+        
         rootView.addSubview(launchAlbumButton)
         launchAlbumButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         launchAlbumButton.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true

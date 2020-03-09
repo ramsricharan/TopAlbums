@@ -14,7 +14,8 @@ class AlbumTableViewCell: UITableViewCell {
     // MARK:- Properties
     let baseViewHeight: CGFloat = 120
     let spacing: CGFloat = 15
-
+    
+    
     // MARK:- Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,6 +31,7 @@ class AlbumTableViewCell: UITableViewCell {
         self.albumArtImageView.image = nil
     }
     
+    
     // MARK:- UI Components
     var baseView: UIView = {
         let view = UIView()
@@ -40,7 +42,6 @@ class AlbumTableViewCell: UITableViewCell {
         view.layer.shadowColor = UIColor.myPrimaryColor.cgColor
         view.layer.shadowOpacity = 0.4
         view.layer.shadowOffset = .zero
-
         return view
     }()
     
@@ -67,7 +68,7 @@ class AlbumTableViewCell: UITableViewCell {
         self.addSubviewToEntireView(childView: baseView, paddingTop: 5, paddingBottom: 5, paddingLeft: 5, paddingRight: 5)
         baseView.heightAnchor.constraint(equalToConstant: baseViewHeight).isActive = true
         baseView.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -10).isActive = true
-
+        
         // Add other Views to BaseView
         // Album Art ImageView
         let side:CGFloat = baseViewHeight-10
@@ -83,7 +84,6 @@ class AlbumTableViewCell: UITableViewCell {
         albumCardInfoLabel.rightAnchor.constraint(equalTo: baseView.rightAnchor, constant: -5).isActive = true
         albumCardInfoLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 5).isActive = true
         albumCardInfoLabel.bottomAnchor.constraint(equalTo: baseView.bottomAnchor,constant: -5).isActive = true
-        
     }
-
+    
 }

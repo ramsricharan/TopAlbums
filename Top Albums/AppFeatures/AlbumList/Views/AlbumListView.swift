@@ -40,17 +40,11 @@ class AlbumListView {
         albumsTableView.leftAnchor.constraint(equalTo: rootView.leftAnchor).isActive = true
         albumsTableView.rightAnchor.constraint(equalTo: rootView.rightAnchor).isActive = true
         albumsTableView.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
-//        albumsTableView.rowHeight = UITableView.automaticDimension
-//        albumsTableView.estimatedRowHeight = UITableView.automaticDimension
     }
-    
     
     public func reloadTableView() {
         DispatchQueue.main.async {
             self.albumsTableView.reloadData()
         }
     }
-    
-    
 }
