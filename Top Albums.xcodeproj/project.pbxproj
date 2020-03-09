@@ -23,6 +23,7 @@
 		35BC207624159AD300B63B9E /* AlbumDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC207524159AD300B63B9E /* AlbumDetailsVC.swift */; };
 		35BC207A24159F4600B63B9E /* AlbumDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC207924159F4600B63B9E /* AlbumDetailsView.swift */; };
 		35BC207D2415BF9400B63B9E /* MyRoundedButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC207C2415BF9400B63B9E /* MyRoundedButtons.swift */; };
+		35BC20802415F25F00B63B9E /* MyColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC207F2415F25F00B63B9E /* MyColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		35BC207524159AD300B63B9E /* AlbumDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsVC.swift; sourceTree = "<group>"; };
 		35BC207924159F4600B63B9E /* AlbumDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsView.swift; sourceTree = "<group>"; };
 		35BC207C2415BF9400B63B9E /* MyRoundedButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoundedButtons.swift; sourceTree = "<group>"; };
+		35BC207F2415F25F00B63B9E /* MyColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		353FC4FF24144FA900E57813 /* Top Albums */ = {
 			isa = PBXGroup;
 			children = (
+				35BC207E2415F24100B63B9E /* Constants */,
 				35BC20682414B8D300B63B9E /* AppFeatures */,
 				353FC52424145E5900E57813 /* Networking */,
 				353FC5212414568500E57813 /* Modal */,
@@ -196,6 +199,14 @@
 				35BC207C2415BF9400B63B9E /* MyRoundedButtons.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		35BC207E2415F24100B63B9E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				35BC207F2415F25F00B63B9E /* MyColors.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +314,7 @@
 				35BC207624159AD300B63B9E /* AlbumDetailsVC.swift in Sources */,
 				35BC207A24159F4600B63B9E /* AlbumDetailsView.swift in Sources */,
 				35BC207D2415BF9400B63B9E /* MyRoundedButtons.swift in Sources */,
+				35BC20802415F25F00B63B9E /* MyColors.swift in Sources */,
 				35BC20662414AEED00B63B9E /* AlbumsAPIClient.swift in Sources */,
 				35BC20722414F6DB00B63B9E /* UIView+Extensions.swift in Sources */,
 				35BC20742414F89200B63B9E /* ImageView+Extensions.swift in Sources */,

@@ -20,9 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Launching App Programatically
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        self.window?.rootViewController = UINavigationController(rootViewController: AlbumListVC())
-//        let rootViewController = AlbumListVC()
-//        self.window?.rootViewController = rootViewController
+        let rootViewController = UINavigationController(rootViewController: AlbumListVC())
+        rootViewController.navigationBar.barStyle = UIBarStyle.black
+        UINavigationBar.appearance().barTintColor = .myPrimaryColor
+        UINavigationBar.appearance().tintColor = .myAccentColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.myAccentColor]
+        UINavigationBar.appearance().isTranslucent = false
+        
+        self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
         
         return true

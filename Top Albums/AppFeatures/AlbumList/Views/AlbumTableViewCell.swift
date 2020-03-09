@@ -13,6 +13,7 @@ class AlbumTableViewCell: UITableViewCell {
     
     // MARK:- Properties
     let baseViewHeight: CGFloat = 120
+    let spacing: CGFloat = 15
 
     // MARK:- Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -33,9 +34,13 @@ class AlbumTableViewCell: UITableViewCell {
     var baseView: UIView = {
         let view = UIView()
         view.noAutoResizing()
-        view.backgroundColor = .yellow
-        view.layer.masksToBounds = true
+        view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 10
+        view.layer.shadowRadius = 5
+        view.layer.shadowColor = UIColor.myPrimaryColor.cgColor
+        view.layer.shadowOpacity = 0.4
+        view.layer.shadowOffset = .zero
+
         return view
     }()
     
@@ -45,20 +50,18 @@ class AlbumTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    var titleLabel: UILabel = {
+    var albumCardInfoLabel: UILabel = {
         let label = UILabel()
         label.noAutoResizing()
+        label.numberOfLines = 0
         return label
     }()
     
-    var artistLabel: UILabel = {
-        let label = UILabel()
-        label.noAutoResizing()
-        return label
-    }()
     
     // MARK:- Setup Views
     func arrangeViews() {
+        // Cell setup
+        self.selectionStyle = .none
         
         // Add Base View
         self.addSubviewToEntireView(childView: baseView, paddingTop: 5, paddingBottom: 5, paddingLeft: 5, paddingRight: 5)
@@ -74,16 +77,12 @@ class AlbumTableViewCell: UITableViewCell {
         albumArtImageView.widthAnchor.constraint(equalToConstant: side).isActive = true
         albumArtImageView.centerYAnchor.constraint(equalTo: baseView.centerYAnchor).isActive = true
         
-        // Album Title View
-        baseView.addSubview(titleLabel)
-        titleLabel.leftAnchor.constraint(equalTo: albumArtImageView.rightAnchor, constant: 5).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: baseView.rightAnchor, constant: -5).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 5).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: baseView.centerYAnchor).isActive = true
-        
-        
-        // Album Artist
-        
+        // Album Card Info View
+        baseView.addSubview(albumCardInfoLabel)
+        albumCardInfoLabel.leftAnchor.constraint(equalTo: albumArtImageView.rightAnchor, constant: spacing).isActive = true
+        albumCardInfoLabel.rightAnchor.constraint(equalTo: baseView.rightAnchor, constant: -5).isActive = true
+        albumCardInfoLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 5).isActive = true
+        albumCardInfoLabel.bottomAnchor.constraint(equalTo: baseView.bottomAnchor,constant: -5).isActive = true
         
     }
 

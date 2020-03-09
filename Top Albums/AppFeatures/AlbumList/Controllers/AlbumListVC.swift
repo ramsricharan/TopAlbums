@@ -41,12 +41,10 @@ class AlbumListVC: UIViewController {
         // Setup Views
         self.view.backgroundColor = .white
         
-
         albumListView = AlbumListView(rootView: self.view)
         albumListView.albumsTableView.delegate = self
         albumListView.albumsTableView.dataSource = self
         albumListView.albumsTableView.register(AlbumTableViewCell.self, forCellReuseIdentifier: tableViewCellID)
-        
     }
 
     
@@ -91,7 +89,7 @@ extension AlbumListVC: UITableViewDelegate, UITableViewDataSource {
 
         let album = albumListViewModals[indexPath.row]
         cell.albumArtImageView.loadImageFrom(url: album.thumbnailURL)
-        cell.titleLabel.text = album.albumName
+        cell.albumCardInfoLabel.attributedText = album.getAlbumCardInfoAttr()
 
         return cell
     }

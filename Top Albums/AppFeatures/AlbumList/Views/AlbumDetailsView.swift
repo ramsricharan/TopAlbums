@@ -27,8 +27,9 @@ class AlbumDetailsView {
         let stack = UIStackView()
         stack.noAutoResizing()
         stack.axis = .vertical
-        stack.alignment = UIStackView.Alignment.center
+        stack.spacing = 0
 //        stack.distribution = UIStackView.Distribution.equalCentering
+        stack.alignment = UIStackView.Alignment.center
         return stack
     }()
     
@@ -43,7 +44,7 @@ class AlbumDetailsView {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.noAutoResizing()
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
@@ -61,6 +62,7 @@ class AlbumDetailsView {
     var artistNameLabel: UILabel = {
         let label = UILabel()
         label.noAutoResizing()
+        label.textAlignment = .center
         return label
     }()
     
@@ -68,6 +70,8 @@ class AlbumDetailsView {
     var genreLabel: UILabel = {
         let label = UILabel()
         label.noAutoResizing()
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
@@ -75,11 +79,23 @@ class AlbumDetailsView {
     var releaseDateLabel: UILabel = {
         let label = UILabel()
         label.noAutoResizing()
+        label.textAlignment = .center
         return label
     }()
     
+    var blankView: UIView = {
+        let view = UIView()
+        view.noAutoResizing()
+        return view
+    }()
+    
     // Visit Album on iTunes button
-    var launchAlbumButton: MyRoundedButtons = MyRoundedButtons()
+    var launchAlbumButton: MyRoundedButtons = {
+        let button = MyRoundedButtons()
+        button.backgroundColor = .myPrimaryColor
+        button.layer.shadowColor = UIColor.myPrimaryColor.cgColor
+        return button
+    }()
     
     
     
@@ -93,18 +109,12 @@ class AlbumDetailsView {
     //MARK:- Helper Methods
     private func setup() {
         // Add the scrollView
-        rootView.addSubview(baseScrollView)
-        baseScrollView.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor).isActive = true
-        baseScrollView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor).isActive = true
-        baseScrollView.leftAnchor.constraint(equalTo: rootView.leftAnchor).isActive = true
-        baseScrollView.rightAnchor.constraint(equalTo: rootView.rightAnchor).isActive = true
-//        baseScrollView.heightAnchor.constraint(equalTo: rootView.heightAnchor).isActive = true
-
+        rootView.addSubviewToEntireView(childView: baseScrollView)
         
         // Add StackView
         baseScrollView.addSubviewToEntireView(childView: stackView)
         stackView.widthAnchor.constraint(equalTo: baseScrollView.widthAnchor).isActive = true
-//        stackView.heightAnchor.constraint(equalTo: baseScrollView.heightAnchor).isActive = true
+        
         
         // Add all other view to the stackView
         stackView.addArrangedSubview(albumArtImageView)
@@ -112,21 +122,34 @@ class AlbumDetailsView {
         albumArtImageView.heightAnchor.constraint(equalTo: albumArtImageView.widthAnchor).isActive = true
         
         stackView.addArrangedSubview(copyrightLabel)
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(genreLabel)
-        stackView.addArrangedSubview(artistNameLabel)
-        stackView.addArrangedSubview(releaseDateLabel)
+        stackView.setCustomSpacing(40, after: copyrightLabel)
+        
+        addLabelToStack(titleLabel)
+        stackView.setCustomSpacing(20, after: titleLabel)
+        
+        addLabelToStack(genreLabel)
+        addLabelToStack(artistNameLabel)
+        addLabelToStack(releaseDateLabel)
+        stackView.setCustomSpacing(75, after: releaseDateLabel)
+        
+        stackView.addArrangedSubview(blankView)
+        blankView.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        blankView.widthAnchor.constraint(equalToConstant: 10).isActive = true
+        
 
-        
-        // stackView.addArrangedSubview(launchAlbumButton)
-        // launchAlbumButton.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.75).isActive = true
-        
         rootView.addSubview(launchAlbumButton)
-        launchAlbumButton.bottomAnchor.constraint(equalTo: rootView.bottomAnchor, constant: -20).isActive = true
+        launchAlbumButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        launchAlbumButton.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         launchAlbumButton.leftAnchor.constraint(equalTo: rootView.leftAnchor, constant: 20).isActive = true
         launchAlbumButton.rightAnchor.constraint(equalTo: rootView.rightAnchor, constant: -20).isActive = true
         launchAlbumButton.widthAnchor.constraint(equalTo: rootView.widthAnchor, constant: -40).isActive = true
-        
+    }
+    
+    private func addLabelToStack(_ view: UIView) {
+        stackView.addArrangedSubview(view)
+        view.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.9).isActive = true
     }
     
 }
+
+

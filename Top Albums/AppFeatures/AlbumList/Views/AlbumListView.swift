@@ -20,6 +20,7 @@ class AlbumListView {
     lazy var albumsTableView: UITableView = {
         let tableView = UITableView()
         tableView.noAutoResizing()
+        tableView.separatorStyle = .none
         return tableView
     }()
     

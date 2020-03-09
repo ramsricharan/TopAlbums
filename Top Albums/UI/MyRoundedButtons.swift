@@ -41,9 +41,11 @@ class MyRoundedButtons : UIButton {
     func setup() {
         self.noAutoResizing()
         self.setTitleColor(UIColor.white, for: .normal)
-        self.backgroundColor =  UIColor.green
         self.layer.cornerRadius = 20
-        self.clipsToBounds = true
-        self.layer.masksToBounds = true
+        
+        self.layer.shadowRadius = 10
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = .zero
     }
 }

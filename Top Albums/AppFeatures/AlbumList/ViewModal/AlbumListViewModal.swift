@@ -12,6 +12,16 @@ import UIKit
 class AlbumListViewModal {
     
     // MARK:- Properties
+    enum FontSizes: CGFloat {
+        case SuperSmall = 10
+        case Small = 14
+        case Medium = 16
+        case Large = 20
+        case XLarge = 24
+        case XXLarge = 32
+    }
+    
+
     private var album: Album?
     var albumName: String
     var artistName: String
@@ -33,41 +43,83 @@ class AlbumListViewModal {
     }
     
     // MARK:- Public Methods
+    
+    // Get short Album Name
+    func getAlbumNameShort() -> String {
+        let maxLen = 20
+        guard albumName.count > maxLen else { return albumName }
+        if let bracketIndex = albumName.firstIndex(of: "(") {
+            let distance = albumName.distance(from: albumName.startIndex, to: bracketIndex)
+            if(distance < maxLen) { return String(albumName[..<bracketIndex]).trimmingCharacters(in: .whitespacesAndNewlines) }
+        }
+        let charArray = Array(albumName)
+        var ptr = maxLen-5
+        
+        while(ptr < charArray.count && charArray[ptr].isLetter ) { ptr += 1 }
+        if ptr < maxLen {
+            return String(charArray[..<ptr])
+        }
+        ptr = maxLen-5
+        while(ptr > 0 && charArray[ptr].isLetter) { ptr -= 1 }
+        if ptr > 0 {
+            return String(charArray[..<ptr])
+        }
+        
+        return albumName
+    }
+    
+    // Get Card details
+    func getAlbumCardInfoAttr() -> NSAttributedString {
+        let title = albumName.count > 15 ? getAlbumNameShort() : albumName
+        let titleFont = UIFont.boldSystemFont(ofSize: FontSizes.XLarge.rawValue)
+        let titleAttributes :[NSAttributedString.Key: Any] = [
+            .font: titleFont,
+            .foregroundColor: UIColor.myPrimaryColor
+        ]
+        let titleAttr = NSMutableAttributedString(string: "\(title)\n", attributes: titleAttributes)
+        
+        let artistAttr = generateSideHeadings(heading: "By", content: artistName, fontSize: FontSizes.Small.rawValue)
+        
+        
+        titleAttr.append(artistAttr)
+        
+        return titleAttr
+    }
+    
     // Get Copyright Attributed Text
     func getCopyrightAttr() -> NSAttributedString {
         let copyrightString = album?.copyright ?? "No Copyright"
-        let font = UIFont.systemFont(ofSize: 10)
-        
+        let font = UIFont.systemFont(ofSize: FontSizes.SuperSmall.rawValue)
         let attributes: [NSAttributedString.Key: Any] = [
             .font: font,
         ]
-        
         return NSAttributedString(string: copyrightString, attributes: attributes)
     }
     
     // Get Full Album Title Attributed Text
     func getAlbumTitleAttr() -> NSAttributedString {
         let albumTitle = album?.name ?? "Untitled"
-        let font = UIFont.boldSystemFont(ofSize: 32)
+        let titleFont = UIFont.boldSystemFont(ofSize: FontSizes.XXLarge.rawValue)
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: font,
+            .font: titleFont,
+            .foregroundColor: UIColor.myPrimaryColor
         ]
         return NSAttributedString(string: albumTitle, attributes: attributes)
     }
     
     // Get Genre Label Attribute text
     func getGenreAttr() -> NSAttributedString {
-        return generateSideHeadings(heading: "Genre", content: getGenreString())
+        return generateSideHeadings(heading: "Genre", content: getGenreString(), fontSize: FontSizes.Medium.rawValue)
     }
     
     // Get Artist Label Attribute text
     func getArtistAttr() -> NSAttributedString {
-        return generateSideHeadings(heading: "Artist", content: artistName)
+        return generateSideHeadings(heading: "Artist", content: artistName, fontSize: FontSizes.Medium.rawValue)
     }
     
     // Get Release Date Label Attribute text
     func getReleaseDateAttr() -> NSAttributedString {
-        return generateSideHeadings(heading: "Release Date", content: getFormattedReleaseDate())
+        return generateSideHeadings(heading: "Release Date", content: getFormattedReleaseDate(), fontSize: FontSizes.Medium.rawValue)
     }
     
 
@@ -90,20 +142,20 @@ class AlbumListViewModal {
         
         for (index, genre) in genres.enumerated() {
             if let name = genre.name {
-                genreString += index == lastIndex ? "\(name)" : "\(name), "
+                genreString += index == lastIndex ? "\(name)." : "\(name), "
             }
         }
         return genreString
     }
     
     // Generate Attr String with bold heading and normal content seperated by ':'
-    private func generateSideHeadings(heading: String, content: String) -> NSAttributedString {
+    private func generateSideHeadings(heading: String, content: String, fontSize: CGFloat) -> NSAttributedString {
         let title = "\(heading): "
-        let boldFont = UIFont.boldSystemFont(ofSize: 14)
-        let titleAttributes: [NSAttributedString.Key: Any] = [.font: boldFont]
+        let subheadingFont = UIFont.boldSystemFont(ofSize: fontSize)
+        let titleAttributes: [NSAttributedString.Key: Any] = [.font: subheadingFont]
         
-        let normalFont = UIFont.systemFont(ofSize: 14)
-        let genreAttributes: [NSAttributedString.Key: Any] = [.font: normalFont]
+        let contentFont = UIFont.systemFont(ofSize: fontSize)
+        let genreAttributes: [NSAttributedString.Key: Any] = [.font: contentFont]
         
         let titleAttr = NSMutableAttributedString(string: title, attributes: titleAttributes)
         let genreAttr = NSAttributedString(string: content, attributes: genreAttributes)

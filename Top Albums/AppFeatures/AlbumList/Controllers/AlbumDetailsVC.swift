@@ -29,7 +29,7 @@ class AlbumDetailsVC: UIViewController {
     func setupViews() {
         self.view.backgroundColor = .white
         // Setup Title
-        self.navigationItem.title = albumViewModal.albumName
+        self.navigationItem.title = albumViewModal.getAlbumNameShort()
         
         // Add Album Details Views
         albumDetailsViews.albumArtImageView.loadImageFrom(url: albumViewModal.thumbnailURL)
@@ -51,7 +51,7 @@ class AlbumDetailsVC: UIViewController {
              UIApplication.shared.open(iTunesURL, options: [:], completionHandler: nil)
         } else {
             let title = "Error"
-            let message = "Sorry, couldn't launch the album \(albumViewModal.albumName) in iTunes App"
+            let message = "Sorry, couldn't launch the album '\(albumViewModal.albumName)' in iTunes App"
             self.showAlert(AlertTitle: title, Message: message)
         }
     }
