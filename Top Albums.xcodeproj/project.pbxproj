@@ -11,7 +11,7 @@
 		353FC50324144FA900E57813 /* AlbumListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FC50224144FA900E57813 /* AlbumListVC.swift */; };
 		353FC50824144FAC00E57813 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353FC50724144FAC00E57813 /* Assets.xcassets */; };
 		353FC50B24144FAC00E57813 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 353FC50924144FAC00E57813 /* LaunchScreen.storyboard */; };
-		353FC51624144FAC00E57813 /* Top_AlbumsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FC51524144FAC00E57813 /* Top_AlbumsTests.swift */; };
+		353FC51624144FAC00E57813 /* AlbumListViewModalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FC51524144FAC00E57813 /* AlbumListViewModalTests.swift */; };
 		353FC523241456FC00E57813 /* AlbumData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FC522241456FC00E57813 /* AlbumData.swift */; };
 		353FC52624145E7A00E57813 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353FC52524145E7A00E57813 /* NetworkManager.swift */; };
 		35BC20662414AEED00B63B9E /* AlbumsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC20652414AEED00B63B9E /* AlbumsAPIClient.swift */; };
@@ -44,7 +44,7 @@
 		353FC50A24144FAC00E57813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		353FC50C24144FAC00E57813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		353FC51124144FAC00E57813 /* Top AlbumsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Top AlbumsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		353FC51524144FAC00E57813 /* Top_AlbumsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top_AlbumsTests.swift; sourceTree = "<group>"; };
+		353FC51524144FAC00E57813 /* AlbumListViewModalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewModalTests.swift; sourceTree = "<group>"; };
 		353FC51724144FAC00E57813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		353FC522241456FC00E57813 /* AlbumData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumData.swift; sourceTree = "<group>"; };
 		353FC52524145E7A00E57813 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		353FC51424144FAC00E57813 /* Top AlbumsTests */ = {
 			isa = PBXGroup;
 			children = (
-				353FC51524144FAC00E57813 /* Top_AlbumsTests.swift */,
+				353FC51524144FAC00E57813 /* AlbumListViewModalTests.swift */,
 				353FC51724144FAC00E57813 /* Info.plist */,
 			);
 			path = "Top AlbumsTests";
@@ -330,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				353FC51624144FAC00E57813 /* Top_AlbumsTests.swift in Sources */,
+				353FC51624144FAC00E57813 /* AlbumListViewModalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

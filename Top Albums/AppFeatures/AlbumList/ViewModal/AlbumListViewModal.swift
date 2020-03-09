@@ -33,7 +33,7 @@ class AlbumListViewModal {
     init(Album: Album?) {
         self.album = Album
         self.albumName = Album?.name ?? "Untitled"
-        self.artistName = Album?.artistName ?? "No Artist"
+        self.artistName = Album?.artistName ?? "Unknown"
         self.thumbnailURL = Album?.artworkUrl100 ?? ""
         
         if let url = Album?.url {

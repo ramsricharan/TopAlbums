@@ -9,7 +9,7 @@
 import XCTest
 @testable import Top_Albums
 
-class AlbumListViewModalTests: XCTestCase {
+class Top_AlbumsTests: XCTestCase {
 
     var testAlbum: Album!
     var testViewModal: AlbumListViewModal!
