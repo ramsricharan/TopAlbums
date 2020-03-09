@@ -11,7 +11,7 @@ import UIKit
 class AlbumDetailsVC: UIViewController {
 
     // MARK:- Properties
-    var albumViewModal: AlbumListViewModal?
+    var albumViewModal: AlbumListViewModal = AlbumListViewModal(Album: nil)
     lazy var albumDetailsViews: AlbumDetailsView = AlbumDetailsView(rootView: self.view)
 
     // MARK:- Lifecycle Methods
@@ -28,36 +28,32 @@ class AlbumDetailsVC: UIViewController {
     // MARK:- Helper Methods
     func setupViews() {
         self.view.backgroundColor = .white
-        guard let albumVM = albumViewModal else { return }
-        
         // Setup Title
-        self.navigationItem.title = albumVM.albumName
+        self.navigationItem.title = albumViewModal.albumName
         
         // Add Album Details Views
-        albumDetailsViews.albumArtImageView.loadImageFrom(url: albumVM.thumbnailURL)
-        albumDetailsViews.copyrightLabel.attributedText = albumVM.getCopyrightAttr()
-        albumDetailsViews.titleLabel.attributedText = albumVM.getAlbumTitleAttr()
-        albumDetailsViews.genreLabel.attributedText = albumVM.getGenreAttr()
-        albumDetailsViews.artistNameLabel.attributedText = albumVM.getArtistAttr()
-        albumDetailsViews.releaseDateLabel.attributedText = albumVM.getReleaseDateAttr()
+        albumDetailsViews.albumArtImageView.loadImageFrom(url: albumViewModal.thumbnailURL)
+        albumDetailsViews.copyrightLabel.attributedText = albumViewModal.getCopyrightAttr()
+        albumDetailsViews.titleLabel.attributedText = albumViewModal.getAlbumTitleAttr()
+        albumDetailsViews.genreLabel.attributedText = albumViewModal.getGenreAttr()
+        albumDetailsViews.artistNameLabel.attributedText = albumViewModal.getArtistAttr()
+        albumDetailsViews.releaseDateLabel.attributedText = albumViewModal.getReleaseDateAttr()
         
         albumDetailsViews.launchAlbumButton.buttonLabel = "Launch in iTunes"
+        albumDetailsViews.launchAlbumButton.isEnabled = albumViewModal.isLaunchITunesButtonEnabled
         albumDetailsViews.launchAlbumButton.addTarget(self, action: #selector(onLaunchButtonTapped), for: .touchUpInside)
         
     }
     
     @objc func onLaunchButtonTapped() {
-        print("Tapped")
-//        var url  = NSURL(string: "itms-apps://apps.apple.com/us/app/facebook/id284882215")
-//        if UIApplication.shared.canOpenURL(url! as URL) {
-//            UIApplication.shared.openURL(url! as URL)
-//        }
-//        
-////        if let itunesURL = URL(string: "itms://music.apple.com/us/album/fine-line/1485802965?app=music") {
-////
-////            UIApplication.shared.open(itunesURL, options: [:], completionHandler: nil)
-////        }
-        
+        if let iTunesURL = URL(string: albumViewModal.iTunesURLString),
+            UIApplication.shared.canOpenURL(iTunesURL) {
+             UIApplication.shared.open(iTunesURL, options: [:], completionHandler: nil)
+        } else {
+            let title = "Error"
+            let message = "Sorry, couldn't launch the album \(albumViewModal.albumName) in iTunes App"
+            self.showAlert(AlertTitle: title, Message: message)
+        }
     }
 
 }

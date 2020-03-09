@@ -12,17 +12,24 @@ import UIKit
 class AlbumListViewModal {
     
     // MARK:- Properties
-    var album: Album?
+    private var album: Album?
     var albumName: String
     var artistName: String
     var thumbnailURL: String
+    var isLaunchITunesButtonEnabled: Bool = false
+    var iTunesURLString: String = ""
     
     // MARK:- Initialize
-    init(Album: Album) {
+    init(Album: Album?) {
         self.album = Album
-        self.albumName = Album.name ?? "Untitled"
-        self.artistName = Album.artistName ?? "No Artist"
-        self.thumbnailURL = Album.artworkUrl100 ?? ""
+        self.albumName = Album?.name ?? "Untitled"
+        self.artistName = Album?.artistName ?? "No Artist"
+        self.thumbnailURL = Album?.artworkUrl100 ?? ""
+        
+        if let url = Album?.url {
+            iTunesURLString = parseToiTunesURL(urlString: url)
+            isLaunchITunesButtonEnabled = !iTunesURLString.isEmpty
+        }
     }
     
     // MARK:- Public Methods
@@ -66,6 +73,13 @@ class AlbumListViewModal {
 
     
     //MARK:- Helper Methods
+    // Parse URL and replace the existing protocol to iTunes (itms) protocol
+    private func parseToiTunesURL(urlString: String) -> String {
+        guard let colonIndex = urlString.firstIndex(of: ":") else {return ""}
+        let result = "itms" + String(urlString[colonIndex...])  // urlString.substring(from: colonIndex)
+        return result
+    }
+    
     // Returns all the genres of the albums seperated by ','
     private func getGenreString() -> String {
         guard let genres = album?.genres, !genres.isEmpty else {

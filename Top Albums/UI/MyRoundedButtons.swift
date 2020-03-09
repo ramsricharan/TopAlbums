@@ -30,6 +30,13 @@ class MyRoundedButtons : UIButton {
         }
     }
     
+    override var isEnabled: Bool {
+        didSet {
+            alpha = self.isEnabled ? 1.0 : 0.5
+        }
+    }
+    
+    
     //MARK:- Setup
     func setup() {
         self.noAutoResizing()
